@@ -1,6 +1,6 @@
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 
-function TechnologyPage({ technologies, companies }) {
+function TechnologyPage({ technologies }) {
   // Iteration 6 - Technology Details
 
   // Iteration 6.1
@@ -18,13 +18,21 @@ function TechnologyPage({ technologies, companies }) {
     <div key={singleTech.id}>
       <h1>Technology Details</h1>
       {/* Iteration 6.2 */}
-      <img src={singleTech.image} alt='tech logo' />
-      <h2>{singleTech.name}</h2>
-      <h3>About</h3>
-      <p>{singleTech.description}</p>
-      <Link to={`/company/${companyName}`}>
-        <button>Back</button>
-      </Link>
+      <div className='page-info'>
+        <button>
+          <img src={singleTech.image} alt='tech logo' />
+        </button>
+        <div className='page-details'>
+          <h2>{singleTech.name}</h2>
+          <h3>About</h3>
+          <p>{singleTech.description}</p>
+        </div>
+      </div>
+      <div className='back-button'>
+        <Link to={`/company/${companyName}`}>
+          <button>Back</button>
+        </Link>
+      </div>
     </div>
   );
 }
